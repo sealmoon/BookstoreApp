@@ -1,0 +1,13 @@
+﻿  Book.cpp
+  BookDetailsForm.cpp
+  Cart.cpp
+  Contact.cpp
+  ContactForm.cpp
+  MainForm.cpp
+  Program.cpp
+  Receipt.cpp
+  ReceiptForm.cpp
+  .NETFramework,Version=v4.7.2.AssemblyAttributes.cpp
+  Generating Code...
+  Book.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+  BookstoreApp.vcxproj -> D:\ProjectsLW\BookstoreApp\x64\Debug\BookstoreApp.exe

@@ -1,0 +1,110 @@
+  BookstoreApp.BookDetailsForm.resources - Embedded, ContainedInManifestFile, 
+  BookstoreApp.ContactForm.resources - Embedded, ContainedInManifestFile, 
+  BookstoreApp.MainForm.resources - Embedded, ContainedInManifestFile, 
+  BookstoreApp.ReceiptForm.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly BookstoreApp, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class BookstoreApp.Book: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, System.String, Int32, Double, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Quantity 'get set' : 
+    Double Price 'get set' : 
+    Int32 Pages 'get set' : 
+    System.String Author 'get set' : 
+    System.String Title 'get set' : 
+  Methods:
+    get_Title(): PrivateScope, Public, HideBySig, SpecialName
+    set_Title(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Author(): PrivateScope, Public, HideBySig, SpecialName
+    set_Author(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Pages(): PrivateScope, Public, HideBySig, SpecialName
+    set_Pages(Int32): PrivateScope, Public, HideBySig, SpecialName
+    get_Price(): PrivateScope, Public, HideBySig, SpecialName
+    set_Price(Double): PrivateScope, Public, HideBySig, SpecialName
+    get_Quantity(): PrivateScope, Public, HideBySig, SpecialName
+    set_Quantity(Int32): PrivateScope, Public, HideBySig, SpecialName
+    AddPages(Int32): PrivateScope, Public, HideBySig
+    RemovePages(Int32): PrivateScope, Public, HideBySig
+    UpdateQuantity(Int32): PrivateScope, Public, HideBySig
+Class BookstoreApp.BookDetailsForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Boolean, BookstoreApp.Book): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetBook(): PrivateScope, Public, HideBySig
+Class BookstoreApp.CartItem: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(BookstoreApp.Book, Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    Int32 Quantity 'get set' : 
+    BookstoreApp.Book BookItem 'get set' : 
+  Methods:
+    get_BookItem(): PrivateScope, Public, HideBySig, SpecialName
+    set_BookItem(Book): PrivateScope, Public, HideBySig, SpecialName
+    get_Quantity(): PrivateScope, Public, HideBySig, SpecialName
+    set_Quantity(Int32): PrivateScope, Public, HideBySig, SpecialName
+Class BookstoreApp.Cart: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.Collections.Generic.List`1[BookstoreApp.CartItem] Items 'get set' : 
+  Methods:
+    get_Items(): PrivateScope, Public, HideBySig, SpecialName
+    set_Items(List`1): PrivateScope, Public, HideBySig, SpecialName
+    AddBook(Book, Int32): PrivateScope, Public, HideBySig
+    RemoveBook(Book): PrivateScope, Public, HideBySig
+    UpdateQuantity(Book, Int32): PrivateScope, Public, HideBySig
+    CalculateTotal(): PrivateScope, Public, HideBySig
+Class BookstoreApp.Contact: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, System.String, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.String Email 'get set' : 
+    System.String PhoneNumber 'get set' : 
+    System.String Name 'get set' : 
+  Methods:
+    get_Name(): PrivateScope, Public, HideBySig, SpecialName
+    set_Name(String): PrivateScope, Public, HideBySig, SpecialName
+    get_PhoneNumber(): PrivateScope, Public, HideBySig, SpecialName
+    set_PhoneNumber(String): PrivateScope, Public, HideBySig, SpecialName
+    get_Email(): PrivateScope, Public, HideBySig, SpecialName
+    set_Email(String): PrivateScope, Public, HideBySig, SpecialName
+Class BookstoreApp.ContactForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Boolean, BookstoreApp.Contact): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    GetContact(): PrivateScope, Public, HideBySig
+    SetContactDetails(Contact): PrivateScope, Public, HideBySig
+Class BookstoreApp.MainForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class BookstoreApp.ReceiptForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    AddItemToReceipt(String, Double, Int32): PrivateScope, Public, HideBySig
+    SetContactInfo(String): PrivateScope, Public, HideBySig
+    CalculateAndDisplayTotal(): PrivateScope, Public, HideBySig
+Class BookstoreApp.Receipt: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Properties:
+    System.DateTime PurchaseDateTime 'get set' : 
+    System.Collections.Generic.List`1[BookstoreApp.Book] PurchasedBooks 'get set' : 
+  Methods:
+    get_PurchasedBooks(): PrivateScope, Public, HideBySig, SpecialName
+    set_PurchasedBooks(List`1): PrivateScope, Public, HideBySig, SpecialName
+    get_PurchaseDateTime(): PrivateScope, Public, HideBySig, SpecialName
+    set_PurchaseDateTime(DateTime): PrivateScope, Public, HideBySig, SpecialName
+    GenerateReceipt(): PrivateScope, Public, HideBySig
+    CalculateTotal(): PrivateScope, Public, HideBySig

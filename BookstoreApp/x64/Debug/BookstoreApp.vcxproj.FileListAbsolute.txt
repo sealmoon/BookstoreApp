@@ -1,0 +1,6 @@
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.vcxproj.AssemblyReference.cache
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.BookDetailsForm.resources
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.ContactForm.resources
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.MainForm.resources
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.ReceiptForm.resources
+D:\ProjectsLW\BookstoreApp\BookstoreApp\x64\Debug\BookstoreApp.vcxproj.GenerateResource.cache
