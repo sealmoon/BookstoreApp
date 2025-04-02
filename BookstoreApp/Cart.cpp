@@ -1,32 +1,36 @@
 #include "Cart.h"
 
 namespace BookstoreApp {
+    CartItem::CartItem(Book^ book, int quantity)
+        : bookItem(book), quantity(quantity) {
+    }
+
     Cart::Cart() {
-        Items = gcnew System::Collections::Generic::List<CartItem^>();
+        items = gcnew System::Collections::Generic::List<CartItem^>();
     }
 
     void Cart::AddBook(Book^ book, int quantity) {
-        for each(CartItem ^ item in Items) {
-            if (item->BookItem == book) {  // Updated to use BookItem
+        for each(CartItem ^ item in items) {
+            if (item->BookItem == book) {
                 item->Quantity += quantity;
                 return;
             }
         }
-        Items->Add(gcnew CartItem(book, quantity));
+        items->Add(gcnew CartItem(book, quantity));
     }
 
     void Cart::RemoveBook(Book^ book) {
-        for (int i = 0; i < Items->Count; i++) {
-            if (Items[i]->BookItem == book) {  // Updated to use BookItem
-                Items->RemoveAt(i);
+        for (int i = 0; i < items->Count; i++) {
+            if (items[i]->BookItem == book) {
+                items->RemoveAt(i);
                 return;
             }
         }
     }
 
     void Cart::UpdateQuantity(Book^ book, int newQuantity) {
-        for each(CartItem ^ item in Items) {
-            if (item->BookItem == book) {  // Updated to use BookItem
+        for each(CartItem ^ item in items) {
+            if (item->BookItem == book) {
                 item->Quantity = newQuantity;
                 return;
             }
@@ -35,8 +39,8 @@ namespace BookstoreApp {
 
     double Cart::CalculateTotal() {
         double total = 0.0;
-        for each(CartItem ^ item in Items) {
-            total += (item->BookItem->Price * item->Quantity);  // Updated to use BookItem
+        for each(CartItem ^ item in items) {
+            total += (item->BookItem->Price * item->Quantity);
         }
         return total;
     }

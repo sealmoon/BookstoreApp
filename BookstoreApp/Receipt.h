@@ -3,17 +3,23 @@
 
 namespace BookstoreApp {
     public ref class Receipt {
-    public:
-        property System::Collections::Generic::List<Book^>^ PurchasedBooks;
-        property System::DateTime PurchaseDateTime;
+    private:
+        System::Collections::Generic::List<Book^>^ purchasedBooks;
+        System::DateTime purchaseDateTime;
 
-        // Constructor
+    public:
         Receipt();
 
-        // Method to generate the receipt
-        System::String^ GenerateReceipt();
+        property System::Collections::Generic::List<Book^>^ PurchasedBooks{
+            System::Collections::Generic::List<Book^> ^ get() { return purchasedBooks; }
+        }
 
-        // Method to calculate the total cost
+            property System::DateTime PurchaseDateTime{
+                System::DateTime get() { return purchaseDateTime; }
+                void set(System::DateTime value) { purchaseDateTime = value; }
+        }
+
+        System::String^ GenerateReceipt();
         double CalculateTotal();
     };
 }

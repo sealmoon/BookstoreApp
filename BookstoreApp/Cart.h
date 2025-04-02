@@ -3,21 +3,35 @@
 
 namespace BookstoreApp {
     public ref class CartItem {
-    public:
-        property Book^ BookItem;  // Changed from 'Book' to 'BookItem'
-        property int Quantity;
+    private:
+        Book^ bookItem;
+        int quantity;
 
-        CartItem(Book^ book, int quantity) {
-            this->BookItem = book;  // Updated to use BookItem
-            this->Quantity = quantity;
+    public:
+        CartItem(Book^ book, int quantity);
+
+        property Book^ BookItem{
+            Book ^ get() { return bookItem; }
+            void set(Book ^ value) { bookItem = value; }
+        }
+
+            property int Quantity{
+                int get() { return quantity; }
+                void set(int value) { quantity = value; }
         }
     };
 
     public ref class Cart {
-    public:
-        property System::Collections::Generic::List<CartItem^>^ Items;
+    private:
+        System::Collections::Generic::List<CartItem^>^ items;
 
+    public:
         Cart();
+
+        property System::Collections::Generic::List<CartItem^>^ Items{
+            System::Collections::Generic::List<CartItem^> ^ get() { return items; }
+        }
+
         void AddBook(Book^ book, int quantity);
         void RemoveBook(Book^ book);
         void UpdateQuantity(Book^ book, int newQuantity);
