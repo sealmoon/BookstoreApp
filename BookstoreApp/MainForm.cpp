@@ -2,6 +2,7 @@
 #include "BookDetailsForm.h"
 #include "ReceiptForm.h"
 #include "ContactForm.h"
+#include "ReviewForm.h"
 #include "Contact.h"
 #include "Book.h"
 #include "Cart.h"
@@ -46,8 +47,46 @@ namespace BookstoreApp {
 
     System::Void MainForm::btnReview_Click(System::Object^ sender, System::EventArgs^ e) {
         if (listBoxBooks->SelectedIndex != -1) {
-            MessageBox::Show("Review for: " + listBoxBooks->SelectedItem->ToString(),
-                "Review", MessageBoxButtons::OK, MessageBoxIcon::Information);
+            Book^ selectedBook = books[listBoxBooks->SelectedIndex];
+
+            // Show review form
+            ReviewForm^ reviewForm = gcnew ReviewForm();
+            if (reviewForm->ShowDialog() == Windows::Forms::DialogResult::OK) {
+                // Create and add the review
+                Review^ newReview = gcnew Review(
+                    reviewForm->Username,
+                    reviewForm->Comment,
+                    reviewForm->Rating
+                );
+                selectedBook->AddReview(newReview);
+
+                // Show confirmation
+                MessageBox::Show(
+                    String::Format("Thank you for your review, {0}!\nRating: {1}/5",
+                        reviewForm->Username,
+                        reviewForm->Rating),
+                    "Review Submitted",
+                    MessageBoxButtons::OK,
+                    MessageBoxIcon::Information
+                );
+
+                // Optional: Show all reviews for debugging
+                /*
+                System::Text::StringBuilder^ sb = gcnew System::Text::StringBuilder();
+                sb->AppendLine("All Reviews for " + selectedBook->Title + ":");
+                for each (Review ^ review in selectedBook->Reviews) {
+                    sb->AppendLine(String::Format("{0} ({1}/5): {2}",
+                        review->Username,
+                        review->Rating,
+                        review->Comment));
+                }
+                MessageBox::Show(sb->ToString(), "Book Reviews");
+                */
+            }
+        }
+        else {
+            MessageBox::Show("Please select a book to review", "Error",
+                MessageBoxButtons::OK, MessageBoxIcon::Error);
         }
     }
 

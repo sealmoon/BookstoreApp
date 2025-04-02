@@ -131,6 +131,8 @@
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="Receipt.cpp" />
     <ClCompile Include="ReceiptForm.cpp" />
+    <ClCompile Include="Review.cpp" />
+    <ClCompile Include="ReviewForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Book.h" />
@@ -147,6 +149,10 @@
     </ClInclude>
     <ClInclude Include="Receipt.h" />
     <ClInclude Include="ReceiptForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Review.h" />
+    <ClInclude Include="ReviewForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>

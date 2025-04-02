@@ -28,8 +28,6 @@ namespace BookstoreApp {
 
     void BookDetailsForm::SetFormMode(bool isEditMode) {
         this->Text = isEditMode ? "Edit Book" : "Add New Book";
-
-        // In edit mode, make title and author read-only
         txtTitle->ReadOnly = isEditMode;
         txtAuthor->ReadOnly = isEditMode;
     }
@@ -43,11 +41,11 @@ namespace BookstoreApp {
             int quantity = Convert::ToInt32(txtQuantity->Text);
 
             if (isEditMode && bookToEdit != nullptr) {
-                // Update the existing book
+                // Update the existing book's properties directly
                 bookToEdit->Pages = pages;
                 bookToEdit->Price = price;
                 bookToEdit->Quantity = quantity;
-                return bookToEdit;
+                return bookToEdit;  // Return the updated book
             }
             else {
                 // Create a new book
@@ -76,6 +74,7 @@ namespace BookstoreApp {
         }
 
         try {
+            // Test conversions to ensure valid numbers
             Convert::ToInt32(txtPages->Text);
             Convert::ToDouble(txtPrice->Text);
             Convert::ToInt32(txtQuantity->Text);
@@ -86,8 +85,12 @@ namespace BookstoreApp {
             return;
         }
 
-        this->DialogResult = Windows::Forms::DialogResult::OK;
-        this->Close();
+        // Get the book (which will update the existing book in edit mode)
+        Book^ book = GetBook();
+        if (book != nullptr) {
+            this->DialogResult = Windows::Forms::DialogResult::OK;
+            this->Close();
+        }
     }
 
     System::Void BookDetailsForm::btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
